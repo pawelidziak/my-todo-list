@@ -1,0 +1,10 @@
+<md-card dnd-sortable [sortableIndex]="i" class="list-group-item" >
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{task.title}}</md-card-title>
+    <md-card-subtitle>{{task.description}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-footer>
+    {{task.deadline | date:"shortDate"}}
+  </md-card-footer>
+</md-card>

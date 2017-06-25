@@ -13,6 +13,7 @@ import {MdCardModule} from '@angular/material';
 import {MdTabsModule} from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {routing} from './app.routing';
+import { TaskComponent } from './dashboard/task/task.component';
 
 
 
@@ -21,6 +22,7 @@ import {routing} from './app.routing';
     AppComponent,
     DashboardComponent,
     SidebarComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
