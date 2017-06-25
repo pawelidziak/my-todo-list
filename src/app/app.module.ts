@@ -3,18 +3,33 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
-import { SimpleDndComponent } from './simple-dnd/simple-dnd.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DndModule } from 'ng2-dnd';
+
+import {MdIconModule} from '@angular/material';
+
+
+import {MdCardModule} from '@angular/material';
+import {MdTabsModule} from '@angular/material';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {routing} from './app.routing';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleDndComponent,
+    DashboardComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    DndModule.forRoot()
+    routing,
+    MdIconModule,
+    DndModule.forRoot(),
+    MdCardModule,
+    MdTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

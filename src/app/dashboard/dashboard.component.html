@@ -1,0 +1,50 @@
+<section class="cos" style="margin-bottom: 100px">
+
+    <div class="row">
+
+      <div class="col-4">
+        <div class="column-title">
+          Todo
+        </div>
+        <div class="" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listBoxers">
+
+            <md-card *ngFor="let item of listBoxers; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+              {{item}}
+            </md-card>
+
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="column-title">
+          First Team
+        </div>
+        <div dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listTeamOne" class="cos">
+          <ul class="list-group">
+            <li *ngFor="let item of listTeamOne; let i = index" class="list-group-item" dnd-sortable
+                [sortableIndex]="i">
+              {{item}}
+            </li>
+          </ul>
+          <div *ngIf="listTeamOne.length === 0">Bleble</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="column-title">
+          Second Team
+        </div>
+        <div dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listTeamTwo" class="cos">
+          <ul class="list-group">
+            <li *ngFor="let item of listTeamTwo; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+              {{item}}
+            </li>
+          </ul>
+          <div *ngIf="listTeamTwo.length === 0" style="cursor: default">No tasks here</div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+</section>

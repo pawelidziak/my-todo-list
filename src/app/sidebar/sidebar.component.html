@@ -1,0 +1,56 @@
+<section class="">
+  <nav class="bg-faded sidebar bg-inverse" [ngClass]="{'opened': !sidebarSmall, 'closed': sidebarSmall}"
+       id="#my-sidebar">
+
+    <div class="toggle-button" [ngClass]="{'text-center': sidebarSmall, 'text-right': !sidebarSmall}"
+         (click)="toggleSidebar()">
+      <button class="material-icons" [ngClass]="{'hide-sidebar': !sidebarSmall, 'show-sidebar': sidebarSmall}">
+        keyboard_arrow_right
+      </button>
+    </div>
+    <ul class="nav flex-column">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']">
+          <div>
+            <!--<i class="icon material-icons">dashboard</i>-->
+            <!---->
+            <!--<span class="text" [style.opacity]="sidebarSmall ? '0' : '1'"-->
+            <!--[style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Dashboard</span>-->
+            <i class="icon material-icons">dashboard</i>
+            <span class="text" [style.opacity]="sidebarSmall ? '0' : '1'"
+                  [style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Dashboard</span>
+          </div>
+
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">
+          <i class="icon material-icons">settings</i>
+          <span class="text" [style.opacity]="sidebarSmall ? '0' : '1'"
+                [style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Settings</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link">
+          <i class="icon material-icons">info</i>
+          <span class="text" [style.opacity]="sidebarSmall ? '0' : '1'"
+                [style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Info</span>
+
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="copyright ">
+      <span class="author" [style.opacity]="sidebarSmall ? '1' : '0'"
+            [style.visibility]="sidebarSmall ? 'visible' : 'hidden'">PI</span>
+      <span class="author-full" [style.opacity]="sidebarSmall ? '0' : '1'"
+              [style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Paweł Idziak</span>
+
+    </div>
+  </nav>
+
+</section>

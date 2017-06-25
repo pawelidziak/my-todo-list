@@ -1,1 +1,6 @@
-<app-simple-dnd></app-simple-dnd>
+<app-sidebar (sendValue)="isSidebarOpen($event)"></app-sidebar>
+
+<section class="main-content" [style.marginLeft.px]="padding">
+  <!--<dashboard-dnd></dashboard-dnd>-->
+  <router-outlet></router-outlet>
+</section >

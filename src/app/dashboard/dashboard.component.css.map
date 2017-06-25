@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAI;EACF,MAAM,EAAE,CAAC;;AAEX,aAAa;EACX,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,OAAO;EACnB,OAAO,EAAE,MAAM;;AAGjB,MAAM;EACJ,UAAU,EAAE,IAAI;;AAElB,OAAO;EACL,aAAa,EAAE,IAAI",
+"sources": ["simple-dnd.component.sass"],
+"names": [],
+"file": "simple-dnd.component.css"
+}

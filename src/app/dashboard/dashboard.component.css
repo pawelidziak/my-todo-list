@@ -1,0 +1,16 @@
+.row {
+  margin: 0; }
+
+.column-title {
+  margin: 50px 0;
+  text-align: center;
+  background: #FAFAFA;
+  padding: 25px 0; }
+
+md-tab {
+  margin-top: 50px; }
+
+md-card {
+  margin-bottom: 10px; }
+
+/*# sourceMappingURL=dashboard.component.css.map*/
