@@ -1,0 +1,41 @@
+@media only screen and (min-width: 768px) {
+  .add-task-dialog-content {
+    min-width: 400px;
+    min-height: 400px; } }
+
+.lists-row {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0; }
+  @media only screen and (min-width: 768px) {
+    .lists-row {
+      margin: 15px 0;
+      flex-direction: row;
+      align-items: center; } }
+
+.column {
+  flex: 1; }
+
+.full-width {
+  width: 100%; }
+
+.add-task-dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.87); }
+
+.my-danger-button {
+  background: #F44336;
+  margin-right: 10px; }
+
+.my-success-button {
+  background: #8BC34A; }
+
+md-select {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    md-select {
+      width: auto; } }
+
+/*# sourceMappingURL=add-task-dialog.component.css.map */

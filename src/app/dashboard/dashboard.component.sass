@@ -1,46 +1,75 @@
 @import '../_helpers/variables'
 
-.row
-  margin: 0
-
-div[class*="col-"]
-  padding: 0
-  border-right: 1px solid $border-color
-
+// OGOLNE -----------------------------------------------------
 .dashboard
-  margin: 10px 10px 0 10px
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12)
-  border-top: 1px solid $border-color
-
-//min-height: 500px
-
+  margin: 0 20px 50px 20px
 
 .column-title
   border-bottom: 1px solid $border-color
   text-align: center
   background: $faced-color
   padding: 25px 0
-  &:last-child
-    border-right: none
-
 
 md-card
-  margin-bottom: 10px
+  margin: 20px
+  min-height: 100px
 
-.example-header-image
-  background: url('https://camo.mybb.com/e01de90be6012adc1b1701dba899491a9348ae79/687474703a2f2f7777772e6a71756572797363726970742e6e65742f696d616765732f53696d706c6573742d526573706f6e736976652d6a51756572792d496d6167652d4c69676874626f782d506c7567696e2d73696d706c652d6c69676874626f782e6a7067')
+button
+  &:focus
+    outline: none
+    border: none
 
 md-card-footer
+  background: $faced-color
+  color: $icon-color
+  font-size: 0.8rem
+  padding: 5px
+  border-top: 1px solid $border-color
   text-align: center
-
-.tasks-container
-  padding: 20px
-  position: relative
-
-  @media #{$information-phone}
-    min-height: 500px
-
 
 .no-tasks
-  margin: auto 0
+  margin: 45% 0
   text-align: center
+  color: $icon-color
+
+.add-task-button
+  background: $primary-color
+
+.save-task-button
+  background: $primary-color-dark
+  font-size: 10px
+
+// FLEX ---------------------------------------------------------
+.navigation-row
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: center
+  margin: 5px 0 8px 0
+
+.lists-row
+  width: 100%
+  display: flex
+  flex-direction: column
+  @media #{$information-phone}
+    flex-direction: row
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12)
+
+.column
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12)
+  flex: 1
+  border: 1px solid $border-color
+  margin-top: 20px
+
+  @media #{$information-phone}
+    margin-top: 0
+    min-height: 500px
+    box-shadow: none
+    &:nth-child(2)
+      border-left: none
+      border-right: none
+
+.item
+  padding: 10px
+
+

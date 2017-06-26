@@ -1,4 +1,4 @@
-<section class="">
+<section class="sidebar-section">
   <nav class="bg-faded sidebar bg-inverse" [ngClass]="{'opened': !sidebarSmall, 'closed': sidebarSmall}"
        id="#my-sidebar">
 
@@ -13,10 +13,6 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/dashboard']" [routerLinkActive]="['active']">
           <div>
-            <!--<i class="icon material-icons">dashboard</i>-->
-            <!---->
-            <!--<span class="text" [style.opacity]="sidebarSmall ? '0' : '1'"-->
-            <!--[style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Dashboard</span>-->
             <i class="icon material-icons">dashboard</i>
             <span class="text" [style.opacity]="sidebarSmall ? '0' : '1'"
                   [style.visibility]="sidebarSmall ? 'hidden' : 'visible'">Dashboard</span>

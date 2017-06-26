@@ -1,4 +1,6 @@
 .main-content {
-  transition: margin-left 250ms ease-in-out; }
+  transition: margin-left 250ms ease-in-out;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px; }
 
 /*# sourceMappingURL=app.component.css.map */

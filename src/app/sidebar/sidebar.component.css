@@ -1,3 +1,6 @@
+.sidebar-section {
+  font-family: "Roboto", sans-serif; }
+
 .toggle-button {
   margin-top: 10px;
   cursor: pointer;
@@ -45,6 +48,7 @@
       .sidebar .nav-item .nav-link .text {
         transition: all 250ms ease-in-out;
         position: fixed;
+        margin-top: 2px;
         margin-left: 10px; }
   .sidebar ul a {
     color: rgba(255, 255, 255, 0.87); }

@@ -1,0 +1,52 @@
+<h1 md-dialog-title>Dialog</h1>
+<div md-dialog-content class="add-task-dialog-content">
+
+  <form [(formGroup)]="addTaskForm" (ngSubmit)="createTask()">
+
+    <!-- Title -->
+    <div class="lists-row">
+      <md-input-container class="full-width">
+        <input mdInput required id="title" type="text" name="title" placeholder="Title" formControlName="title">
+        <md-error>The title is required</md-error>
+      </md-input-container>
+    </div>
+
+    <div class="lists-row">
+      <!-- Type -->
+      <div class="column">
+        <md-select placeholder="Type" name="type" [ngModel]="taskTypes[1].value" formControlName="type">
+          <md-option *ngFor="let type of taskTypes" [value]="type.value">
+            {{type.value}}
+          </md-option>
+        </md-select>
+      </div>
+
+      <!-- Deadline -->
+      <div class="column">
+        <md-input-container>
+          <input mdInput [mdDatepicker]="picker" placeholder="Deadline" formControlName="deadline">
+          <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        </md-input-container>
+        <md-datepicker #picker></md-datepicker>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="lists-row">
+      <md-input-container class="full-width">
+      <textarea rows="4" mdInput id="description" type="text" name="description" placeholder="Description"
+                formControlName="description"></textarea>
+      </md-input-container>
+    </div>
+
+  </form>
+
+  <md-dialog-actions class="add-task-dialog-buttons">
+    <button md-raised-button md-dialog-close class="my-danger-button">Cancel</button>
+    <button md-raised-button [disabled]="addTaskForm.invalid" (click)="createTask()" class="my-success-button">
+      Create
+    </button>
+  </md-dialog-actions>
+</div>
+
+

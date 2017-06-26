@@ -28,7 +28,7 @@ export class SidebarComponent implements OnInit {
 
   private detectSize(): void {
     // podczas wczytywania strony
-    const changeWhen = 768;
+    const changeWhen = 1000;
     if (window.innerWidth < changeWhen) {
       this.collapseSidebar(true);
     } else {

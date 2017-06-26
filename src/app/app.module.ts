@@ -4,36 +4,34 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DndModule } from 'ng2-dnd';
 
-import {MdIconModule} from '@angular/material';
+import {MdDatepicker, MdIconModule} from '@angular/material';
 
 
-import {MdCardModule} from '@angular/material';
-import {MdTabsModule} from '@angular/material';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {routing} from './app.routing';
-import { TaskComponent } from './dashboard/task/task.component';
+import {DashboardModule} from './dashboard/dashboard.module';
+
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     SidebarComponent,
-    TaskComponent,
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     routing,
     MdIconModule,
-    DndModule.forRoot(),
-    MdCardModule,
-    MdTabsModule
+    DashboardModule
   ],
-  providers: [],
+
+  providers: [MdDatepicker],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

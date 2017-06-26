@@ -11,6 +11,5 @@ export class AppComponent {
 
   public isSidebarOpen(value: number): void {
     this.padding = value;
-    console.log(value);
   }
 }
