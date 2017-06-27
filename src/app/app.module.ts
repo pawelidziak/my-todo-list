@@ -3,20 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 import {MdDatepicker, MdIconModule} from '@angular/material';
-
-
-import { SidebarComponent } from './sidebar/sidebar.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
 import {routing} from './app.routing';
 import {DashboardModule} from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

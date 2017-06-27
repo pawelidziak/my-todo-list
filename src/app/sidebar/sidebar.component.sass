@@ -3,70 +3,61 @@
 .sidebar-section
   font-family: 'Roboto', sans-serif
 
-.toggle-button
-  margin-top: 10px
-  cursor: pointer
-  width: 100%
-  display: inline-block
-
-  button
-    transition: transform 350ms ease-in-out
-    border: none
-    float: right
-    background: transparent
-    cursor: pointer
-    color: #fff
-    transform: scale(5)
-    font-size: 50px
-
-  .show-sidebar
-    transform: rotate(0deg)
-
-  .hide-sidebar
-    transform: rotate(180deg)
-
-.sidebar
-  position: fixed
+nav
+  position: absolute
   top: 0
   bottom: 0
+  left: 0
   overflow: hidden
   background-color: $primary-color !important
   transition: width 250ms ease-in-out
   &.opened
     width: 200px
-
   &.closed
     width: 60px
 
-  .nav-item
-    cursor: pointer
-    margin-top: 5px
-    .active
-      background-color: $primary-color-dark
-      color: $secondary-text-color
+.toggle-button
+  margin-top: 10px
+  cursor: pointer
+  color: $primary-text-color
+  font-size: 50px
+  transition: transform 350ms ease-in-out
+  position: absolute
+  right: 5px
 
-    .nav-link
-      width: 200px
-      padding: 10px
+.show-sidebar
+  transform: rotate(0deg)
 
-      &:hover
-        background-color: $primary-color-dark
+.hide-sidebar
+  transform: rotate(180deg)
 
-      .icon
-        background: no-repeat center
-        margin-left: 7px
+ul
+  margin-top: 60px
+  list-style: none
+  padding: 0
 
-      .text
-        transition: all 250ms ease-in-out
-        position: fixed
-        margin-top: 2px
-        margin-left: 10px
+.li-item
+  padding: 10px 0 10px 16px
+  cursor: pointer
+  color: $secondary-text-color
+  text-decoration: none
+  &:hover
+    background: lighten($primary-color-dark, 10%)
+    color: $primary-text-color
 
-  ul
-    a
-      color: $primary-text-color
-      &:hover
-        color: $secondary-text-color
+.li-item.active
+  background: $primary-color-dark
+  color: $primary-text-color
+
+
+.text
+  transition: all 250ms ease-in-out
+  position: fixed
+  margin-top: 3px
+  margin-left: 10px
+
+.icon
+  transition: all 250ms ease-in-out
 
 .copyright
   position: fixed
@@ -81,5 +72,3 @@
   .author-full
     margin-left: 20px
     transition: all 250ms ease-in-out
-
-
