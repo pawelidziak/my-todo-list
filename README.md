@@ -1,4 +1,14 @@
-# ToDo
+# Todo list
+
+Simple web application where You can create tasks, drags them into proper container (todo, in progress, done), save tasks in local storage and remove them.
+
+Project is still in progress. To implement:
+- edit task
+- remove one task
+
+External modules:
+- ng-dnd (drag & drop): https://github.com/akserg/ng2-dnd
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
