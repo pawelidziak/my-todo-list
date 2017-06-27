@@ -1,7 +1,7 @@
 # Todo list
 ### Angular 4, TypeScript, Material design
 
-Simple web application where You can create tasks, drags them into proper container (todo, in progress, done), save tasks in local storage and remove them.
+Simple web application where You can create tasks, drag them into proper container (todo, in progress, done), save tasks in local storage and remove them.
 
 Project is still in progress. To implement:
 - edit task
