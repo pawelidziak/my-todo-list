@@ -1,12 +1,12 @@
 md-card {
   margin: 20px;
-  min-height: 100px; }
+  min-height: 50px; }
 
 md-card-footer {
   background: #FAFAFA;
   color: rgba(0, 0, 0, 0.35);
   font-size: 0.8rem;
-  padding: 5px;
+  padding: 5px 0;
   border-top: 1px solid #E0E0E0;
   text-align: center; }
 
