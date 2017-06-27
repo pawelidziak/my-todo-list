@@ -7,21 +7,9 @@
   background: #FAFAFA;
   padding: 25px 0; }
 
-md-card {
-  margin: 20px;
-  min-height: 100px; }
-
 button:focus {
   outline: none;
   border: none; }
-
-md-card-footer {
-  background: #FAFAFA;
-  color: rgba(0, 0, 0, 0.35);
-  font-size: 0.8rem;
-  padding: 5px;
-  border-top: 1px solid #E0E0E0;
-  text-align: center; }
 
 .no-tasks {
   margin: 45% 0;
@@ -31,9 +19,11 @@ md-card-footer {
 .add-task-button {
   background: #2196F3; }
 
-.save-task-button {
-  background: #1976D2;
-  font-size: 10px; }
+.save-tasks-button {
+  background: #1976D2; }
+
+.remove-tasks-button {
+  background: #F44336; }
 
 .navigation-row {
   width: 100%;

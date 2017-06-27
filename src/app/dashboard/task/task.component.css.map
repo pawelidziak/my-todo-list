@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,OAAO;EACL,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,KAAK;;AAEnB,cAAc;EACZ,UAAU,ECIE,OAAO;EDHnB,KAAK,ECQM,mBAAmB;EDP9B,SAAS,EAAE,MAAM;EACjB,OAAO,EAAE,GAAG;EACZ,UAAU,EAAE,iBAAuB;EACnC,UAAU,EAAE,MAAM",
+"sources": ["task.component.sass","../../_helpers/variables.sass"],
+"names": [],
+"file": "task.component.css"
+}

@@ -43,13 +43,12 @@ export class AddTaskDialogComponent implements OnInit {
   }
 
   createTask(): void {
-    const task = new Task(this.title.value, this.type.value, this.description.value, this.deadline.value);
-    task.color = this.adjustTaskColor(task.type);
-    console.log(task);
+    const color = this.adjustTaskColor(this.type.value);
+    const task = new Task(this.title.value, this.type.value, color, this.description.value, this.deadline.value);
     this.dialogRef.close(task);
   }
 
-  adjustTaskColor(value: string): string {
+  private adjustTaskColor(value: string): string {
     switch (value) {
       case 'Important': return '#F44336';
       case 'Normal': return '#1976D2';

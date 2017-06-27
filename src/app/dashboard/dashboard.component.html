@@ -7,9 +7,18 @@
       </button>
     </div>
     <div class="item">
-      <button mdTooltip="Save" md-mini-fab class="save-task-button" (click)="saveTasks()">
+      <button mdTooltip="Save" md-mini-fab class="save-tasks-button" (click)="saveTasks()">
         <i class="material-icons">save</i>
       </button>
+    </div>
+    <div class="item">
+      <button mdTooltip="Remove all" md-mini-fab [mdMenuTriggerFor]="remove" class="remove-tasks-button" >
+        <i class="material-icons">delete_forever</i>
+      </button>
+      <md-menu #remove="mdMenu">
+        <button md-menu-item (click)="removeTasks()">Yes</button>
+        <button md-menu-item>No</button>
+      </md-menu>
     </div>
   </div>
 
@@ -19,22 +28,11 @@
       <div class="column-title">
         Todo
       </div>
-
-      <div>
-      <md-card (click)="openAddTaskDialog()" *ngFor="let item of todoList; let i = index" dnd-sortable [sortableIndex]="i"
-               [style.border-left]="'5px solid '+item.color" >
-        <md-card-header>
-          <md-card-title>{{item.title}}</md-card-title>
-          <md-card-subtitle>{{item.description}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-footer>
-          <span *ngIf="item.deadline">{{item.deadline | date:"shortDate"}}</span>
-          <span *ngIf="!item.deadline">no deadline</span>
-        </md-card-footer>
-      </md-card>
-
-      <div *ngIf="todoList.length === 0" class="no-tasks">No tasks here</div>
+      <div *ngIf="todoList.length > 0">
+        <app-task *ngFor="let item of todoList; let i = index" [item]="item" [sortBy]="i"></app-task>
       </div>
+      <div *ngIf="todoList.length === 0" class="no-tasks">No tasks here</div>
+
     </div> <!-- /To do -->
 
     <!-- In progress-->
@@ -42,19 +40,9 @@
       <div class="column-title">
         In progress
       </div>
-
-      <md-card *ngFor="let item of inProgressList; let i = index" dnd-sortable [sortableIndex]="i"
-               [style.border-left]="'5px solid '+item.color">
-        <md-card-header>
-          <md-card-title>{{item.title}}</md-card-title>
-          <md-card-subtitle>{{item.description}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-footer>
-          <span *ngIf="item.deadline">{{item.deadline | date:"shortDate"}}</span>
-          <span *ngIf="!item.deadline">no deadline</span>
-        </md-card-footer>
-      </md-card>
-
+      <div *ngIf="inProgressList.length > 0">
+        <app-task *ngFor="let item of inProgressList; let i = index" [item]="item" [sortBy]="i"></app-task>
+      </div>
       <div *ngIf="inProgressList.length === 0" class="no-tasks">No tasks here</div>
 
     </div> <!-- /In progress -->
@@ -64,19 +52,9 @@
       <div class="column-title">
         Done
       </div>
-
-      <md-card *ngFor="let item of doneList; let i = index" dnd-sortable [sortableIndex]="i"
-               [style.border-left]="'5px solid '+item.color">
-        <md-card-header>
-          <md-card-title>{{item.title}}</md-card-title>
-          <md-card-subtitle>{{item.description}}</md-card-subtitle>
-        </md-card-header>
-        <md-card-footer>
-          <span *ngIf="item.deadline">{{item.deadline | date:"shortDate"}}</span>
-          <span *ngIf="!item.deadline">no deadline</span>
-        </md-card-footer>
-      </md-card>
-
+      <div *ngIf="doneList.length > 0">
+        <app-task *ngFor="let item of doneList; let i = index" [item]="item" [sortBy]="i"></app-task>
+      </div>
       <div *ngIf="doneList.length === 0" class="no-tasks">No tasks here</div>
 
     </div> <!-- /Done -->

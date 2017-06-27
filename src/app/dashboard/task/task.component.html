@@ -1,0 +1,12 @@
+<md-card [style.border-left]="'5px solid '+item.color" dnd-sortable [sortableIndex]="sortBy">
+  <!--dnd-sortable [sortableIndex]="i"-->
+
+  <md-card-header>
+    <md-card-title>{{item.title}}</md-card-title>
+    <md-card-subtitle>{{item.description}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-footer>
+    <span *ngIf="item.deadline">{{item.deadline | date:"shortDate"}}</span>
+    <span *ngIf="!item.deadline">no deadline</span>
+  </md-card-footer>
+</md-card>

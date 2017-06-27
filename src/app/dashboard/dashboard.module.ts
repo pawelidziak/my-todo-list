@@ -19,6 +19,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MdSelectModule} from '@angular/material';
 import {MdTooltipModule} from '@angular/material';
 import {DashboardService} from './dashboard.service';
+import {TaskComponent} from './task/task.component';
+import {MdMenuModule} from '@angular/material';
 
 
 @NgModule({
@@ -33,9 +35,10 @@ import {DashboardService} from './dashboard.service';
     MdGridListModule,
     FormsModule, ReactiveFormsModule,
     MdSelectModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdMenuModule
   ],
-  declarations: [DashboardComponent, AddTaskDialogComponent],
+  declarations: [DashboardComponent, AddTaskDialogComponent, TaskComponent],
   providers: [DashboardService],
   entryComponents: [AddTaskDialogComponent],
 
