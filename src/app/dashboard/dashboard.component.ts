@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Task} from '../_classes/Task';
 import {MdDialog} from '@angular/material';
 import {AddTaskDialogComponent} from './add-task-dialog/add-task-dialog.component';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-simple-dnd',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   inProgressList: Array<Task>;
   doneList: Array<Task>;
 
-  constructor(public dialog: MdDialog) {
+  constructor(public dialog: MdDialog, public snackBar: MdSnackBar) {
   }
 
   private initLists(): void {
@@ -32,9 +33,22 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  openSaveSnackBar() {
+    this.saveTasks();
+    this.snackBar.open('Task saved!', '', {
+      duration: 2000,
+    });
+  }
+
+  openRemoveSnackBar() {
+    this.removeTasks();
+    this.snackBar.open('Task removed!', '', {
+      duration: 2000,
+    });
+  }
+
   addTask(task: Task): void {
     this.todoList.push(task);
-    console.log(this.todoList);
   }
 
   // method stores lists with all tasks in local storage

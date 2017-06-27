@@ -12,11 +12,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {routing} from './app.routing';
 import {DashboardModule} from './dashboard/dashboard.module';
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
