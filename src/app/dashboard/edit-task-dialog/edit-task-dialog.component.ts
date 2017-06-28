@@ -12,7 +12,7 @@ import {DashboardService} from '../dashboard.service';
 export class EditTaskDialogComponent implements OnInit {
 
   task: Task;
-  list: string;
+  list: Array<Task>;
 
   // Create Issue Form
   public editTaskForm: FormGroup;
@@ -50,8 +50,7 @@ export class EditTaskDialogComponent implements OnInit {
     this.task.type = this.type.value;
     this.task.description = this.description.value;
     this.task.deadline = this.deadline.value;
-
-    this._dashboardService.updateTask(this.task, this.list);
+    this.task.color = this._dashboardService.adjustTaskColor(this.task.type);
     this.dialogRef.close();
   }
 

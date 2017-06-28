@@ -34,12 +34,7 @@ export class DashboardService {
     const task = new Task(title, type, color, description, deadline);
     this._todoList.push(task);
   }
-
-  updateTask(task: Task, list: any) {
-    task.color = this.adjustTaskColor(task.type);
-    this.findList(list)[this.findList(list).indexOf(task)] = task;
-  }
-
+  
   // method stores lists with all tasks in local storage
   saveTasks(): void {
     const allLists = [
@@ -58,7 +53,7 @@ export class DashboardService {
     this.doneList.length = 0;
   }
 
-  private adjustTaskColor(value: string): string {
+  adjustTaskColor(value: string): string {
     switch (value) {
       case 'Important':
         return '#F44336';
@@ -93,18 +88,6 @@ export class DashboardService {
         }
       }
     }
-  }
-
-  private findList(list: any): Array<Task> {
-    switch (list) {
-      case ListsEnum.TODO:
-        return this.todoList;
-      case ListsEnum.INPROGRESS:
-        return this.inProgressList;
-      case ListsEnum.DONE:
-        return this.doneList;
-    }
-
   }
 
   get todoList(): Array<Task> {

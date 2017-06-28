@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(AddTaskDialogComponent);
     dialogRef.afterClosed().subscribe();
   }
-  openEditTaskDialog(task: Task, list: string): void {
+  openEditTaskDialog(task: Task, list: Array<Task>): void {
     const dialogRef = this.dialog.open(EditTaskDialogComponent);
     dialogRef.componentInstance.task = task;
     dialogRef.componentInstance.list = list;
