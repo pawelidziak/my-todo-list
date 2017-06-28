@@ -11,7 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class AddTaskDialogComponent implements OnInit {
 
   // Create Issue Form
-  private addTaskForm: FormGroup;
+  public addTaskForm: FormGroup;
   private title: FormControl;
   private type: FormControl;
   private deadline: FormControl;

@@ -3,6 +3,7 @@ import {Task} from '../_classes/Task';
 import {MdDialog} from '@angular/material';
 import {AddTaskDialogComponent} from './add-task-dialog/add-task-dialog.component';
 import {MdSnackBar} from '@angular/material';
+import {DashboardService} from './dashboard.service';
 
 @Component({
   selector: 'app-simple-dnd',
@@ -15,13 +16,13 @@ export class DashboardComponent implements OnInit {
   inProgressList: Array<Task>;
   doneList: Array<Task>;
 
-  constructor(public dialog: MdDialog, public snackBar: MdSnackBar) {
+  constructor(public dialog: MdDialog, public snackBar: MdSnackBar, private _dashboardService: DashboardService) {
   }
 
   private initLists(): void {
-    this.todoList = [];
-    this.inProgressList = [];
-    this.doneList = [];
+    this.todoList = this._dashboardService.todoList;
+    this.inProgressList = this._dashboardService.inProgressList;
+    this.doneList = this._dashboardService.doneList;
   }
 
   openAddTaskDialog(): void {
@@ -48,54 +49,19 @@ export class DashboardComponent implements OnInit {
   }
 
   addTask(task: Task): void {
-    this.todoList.push(task);
+    this._dashboardService.addTask(task);
   }
 
-  // method stores lists with all tasks in local storage
   saveTasks(): void {
-    const allLists = [
-      {name: 'todo', list: this.todoList},
-      {name: 'inProgress', list: this.inProgressList},
-      {name: 'done', list: this.doneList}
-    ];
-    localStorage.removeItem('tasks');
-    localStorage.setItem('tasks', JSON.stringify(allLists));
+    this._dashboardService.saveTasks();
   }
 
   removeTasks(): void {
-    localStorage.removeItem('tasks');
-    this.initLists();
-  }
-
-  filterLists(lists: any[]) {
-    if (lists) {
-      for (const list of lists) {
-        switch (list.name) {
-          case 'todo':
-            for (const task of list.list) {
-              this.todoList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
-            }
-            break;
-
-          case 'inProgress':
-            for (const task of list.list) {
-              this.inProgressList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
-            }
-            break;
-
-          case 'done':
-            for (const task of list.list) {
-              this.doneList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
-            }
-            break;
-        }
-      }
-    }
+    this._dashboardService.removeTasks();
   }
 
   ngOnInit() {
     this.initLists();
-    this.filterLists(JSON.parse(localStorage.getItem('tasks')));
   }
 }
 
