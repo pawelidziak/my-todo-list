@@ -7,6 +7,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Task} from '../_classes/Task';
+import {ListsEnum} from '../_classes/ListsEnum';
 
 @Injectable()
 export class DashboardService {
@@ -14,6 +15,7 @@ export class DashboardService {
   private _todoList: Array<Task>;
   private _inProgressList: Array<Task>;
   private _doneList: Array<Task>;
+  private _listsEnum;
 
   constructor() {
     this.initLists();
@@ -21,21 +23,29 @@ export class DashboardService {
   }
 
   private initLists(): void {
-    this._todoList = [];
-    this._inProgressList = [];
-    this._doneList = [];
+    this.todoList = [];
+    this.inProgressList = [];
+    this.doneList = [];
+    this._listsEnum = ListsEnum;
   }
 
-  addTask(task: Task): void {
+  addTask(title: string, type: string, deadline: Date, description: string): void {
+    const color = this.adjustTaskColor(type);
+    const task = new Task(title, type, color, description, deadline);
     this._todoList.push(task);
+  }
+
+  updateTask(task: Task, list: any) {
+    task.color = this.adjustTaskColor(task.type);
+    this.findList(list)[this.findList(list).indexOf(task)] = task;
   }
 
   // method stores lists with all tasks in local storage
   saveTasks(): void {
     const allLists = [
-      {name: 'todo', list: this._todoList},
-      {name: 'inProgress', list: this._inProgressList},
-      {name: 'done', list: this._doneList}
+      {name: ListsEnum.TODO,        list: this._todoList},
+      {name: ListsEnum.INPROGRESS,  list: this._inProgressList},
+      {name: ListsEnum.DONE,        list: this._doneList}
     ];
     localStorage.removeItem('tasks');
     localStorage.setItem('tasks', JSON.stringify(allLists));
@@ -43,28 +53,41 @@ export class DashboardService {
 
   removeTasks(): void {
     localStorage.removeItem('tasks');
-    this.initLists();
+    this.todoList.length = 0;
+    this.inProgressList.length = 0;
+    this.doneList.length = 0;
+  }
+
+  private adjustTaskColor(value: string): string {
+    switch (value) {
+      case 'Important':
+        return '#F44336';
+      case 'Normal':
+        return '#1976D2';
+      case 'Trivial':
+        return '#8BC34A';
+    }
   }
 
   private filterLists(lists: any[]) {
     if (lists) {
       for (const list of lists) {
         switch (list.name) {
-          case 'todo':
+          case ListsEnum.TODO:
             for (const task of list.list) {
-              this._todoList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
+              this.todoList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
             }
             break;
 
-          case 'inProgress':
+          case ListsEnum.INPROGRESS:
             for (const task of list.list) {
-              this._inProgressList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
+              this.inProgressList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
             }
             break;
 
-          case 'done':
+          case ListsEnum.DONE:
             for (const task of list.list) {
-              this._doneList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
+              this.doneList.push(new Task(task._title, task._type, task._color, task._description, task._deadline));
             }
             break;
         }
@@ -72,15 +95,39 @@ export class DashboardService {
     }
   }
 
+  private findList(list: any): Array<Task> {
+    switch (list) {
+      case ListsEnum.TODO:
+        return this.todoList;
+      case ListsEnum.INPROGRESS:
+        return this.inProgressList;
+      case ListsEnum.DONE:
+        return this.doneList;
+    }
+
+  }
+
   get todoList(): Array<Task> {
     return this._todoList;
+  }
+
+  set todoList(value: Array<Task>) {
+    this._todoList = value;
   }
 
   get inProgressList(): Array<Task> {
     return this._inProgressList;
   }
 
+  set inProgressList(value: Array<Task>) {
+    this._inProgressList = value;
+  }
+
   get doneList(): Array<Task> {
     return this._doneList;
+  }
+
+  set doneList(value: Array<Task>) {
+    this._doneList = value;
   }
 }

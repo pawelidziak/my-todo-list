@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from '../_classes/Task';
+import {ListsEnum} from '../_classes/ListsEnum';
+
 import {MdDialog} from '@angular/material';
 import {AddTaskDialogComponent} from './add-task-dialog/add-task-dialog.component';
 import {MdSnackBar} from '@angular/material';
 import {DashboardService} from './dashboard.service';
+import {EditTaskDialogComponent} from './edit-task-dialog/edit-task-dialog.component';
 
 @Component({
   selector: 'app-simple-dnd',
@@ -15,6 +18,7 @@ export class DashboardComponent implements OnInit {
   todoList: Array<Task>;
   inProgressList: Array<Task>;
   doneList: Array<Task>;
+  listsEnum = ListsEnum;
 
   constructor(public dialog: MdDialog, public snackBar: MdSnackBar, private _dashboardService: DashboardService) {
   }
@@ -27,13 +31,16 @@ export class DashboardComponent implements OnInit {
 
   openAddTaskDialog(): void {
     const dialogRef = this.dialog.open(AddTaskDialogComponent);
+    dialogRef.afterClosed().subscribe();
+  }
+  openEditTaskDialog(task: Task, list: string): void {
+    const dialogRef = this.dialog.open(EditTaskDialogComponent);
+    dialogRef.componentInstance.task = task;
+    dialogRef.componentInstance.list = list;
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.addTask(result);
-      }
+
     });
   }
-
   openSaveSnackBar() {
     this.saveTasks();
     this.snackBar.open('Task saved!', '', {
@@ -48,9 +55,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  addTask(task: Task): void {
-    this._dashboardService.addTask(task);
-  }
 
   saveTasks(): void {
     this._dashboardService.saveTasks();

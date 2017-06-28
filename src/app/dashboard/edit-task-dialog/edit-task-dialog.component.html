@@ -1,12 +1,12 @@
-<h1 md-dialog-title>Add Task</h1>
-<div md-dialog-content class="add-task-dialog-content">
+<h1 md-dialog-title>Edit Task</h1>
+<div md-dialog-content class="edit-task-dialog-content">
 
-  <form [(formGroup)]="addTaskForm" (ngSubmit)="createTask()">
+  <form [(formGroup)]="editTaskForm" (ngSubmit)="createTask()">
 
     <!-- Title -->
     <div class="lists-row">
       <md-input-container class="full-width">
-        <input mdInput required id="title" type="text" name="title" placeholder="Title" formControlName="title">
+        <input mdInput required id="title" type="text" name="title" placeholder="Title" formControlName="title" [ngModel]="task.title">
         <md-error>The title is required</md-error>
       </md-input-container>
     </div>
@@ -14,7 +14,7 @@
     <div class="lists-row">
       <!-- Type -->
       <div class="column">
-        <md-select placeholder="Type" name="type" [ngModel]="taskTypes[1].value" formControlName="type">
+        <md-select placeholder="Type" name="type" [ngModel]="task.type" formControlName="type">
           <md-option *ngFor="let type of taskTypes" [value]="type.value">
             {{type.value}}
           </md-option>
@@ -24,7 +24,7 @@
       <!-- Deadline -->
       <div class="column">
         <md-input-container>
-          <input mdInput [mdDatepicker]="picker" placeholder="Deadline" formControlName="deadline">
+          <input mdInput [mdDatepicker]="picker" placeholder="Deadline" formControlName="deadline" [ngModel]="task.deadline">
           <button mdSuffix [mdDatepickerToggle]="picker"></button>
         </md-input-container>
         <md-datepicker #picker></md-datepicker>
@@ -35,7 +35,7 @@
     <div class="lists-row">
       <md-input-container class="full-width">
       <textarea rows="4" mdInput id="description" type="text" name="description" placeholder="Description"
-                formControlName="description"></textarea>
+                formControlName="description" [ngModel]="task.description"></textarea>
       </md-input-container>
     </div>
 
@@ -43,10 +43,13 @@
 
   <md-dialog-actions class="add-task-dialog-buttons">
     <button md-raised-button md-dialog-close class="my-danger-button">Cancel</button>
-    <button md-raised-button [disabled]="addTaskForm.invalid" (click)="createTask()" class="my-success-button">
-      Create
+    <button md-raised-button [disabled]="editTaskForm.invalid" (click)="updateTask()" class="my-success-button">
+      Update
     </button>
   </md-dialog-actions>
+
+
+
 </div>
 
 

@@ -1,17 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
+import {Task} from '../../_classes/Task';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DashboardService} from '../dashboard.service';
 
 @Component({
-  selector: 'app-add-task-dialog',
-  templateUrl: './add-task-dialog.component.html',
-  styleUrls: ['./add-task-dialog.component.sass']
+  selector: 'app-edit-task-dialog',
+  templateUrl: './edit-task-dialog.component.html',
+  styleUrls: ['./edit-task-dialog.component.sass']
 })
-export class AddTaskDialogComponent implements OnInit {
+export class EditTaskDialogComponent implements OnInit {
+
+  task: Task;
+  list: string;
 
   // Create Issue Form
-  public addTaskForm: FormGroup;
+  public editTaskForm: FormGroup;
   private title: FormControl;
   private type: FormControl;
   private deadline: FormControl;
@@ -23,8 +27,7 @@ export class AddTaskDialogComponent implements OnInit {
     {value: 'Trivial'}
   ];
 
-  constructor(public dialogRef: MdDialogRef<AddTaskDialogComponent>, private _dashboardService: DashboardService) {
-  }
+  constructor(public dialogRef: MdDialogRef<EditTaskDialogComponent>, private _dashboardService: DashboardService) { }
 
   private createFormControls(): void {
     this.title = new FormControl('', Validators.required);
@@ -34,7 +37,7 @@ export class AddTaskDialogComponent implements OnInit {
   }
 
   private createForm(): void {
-    this.addTaskForm = new FormGroup({
+    this.editTaskForm = new FormGroup({
       title: this.title,
       type: this.type,
       deadline: this.deadline,
@@ -42,14 +45,19 @@ export class AddTaskDialogComponent implements OnInit {
     });
   }
 
-  createTask(): void {
-    this._dashboardService.addTask(this.title.value, this.type.value, this.description.value, this.deadline.value);
+  updateTask(): void {
+    this.task.title = this.title.value;
+    this.task.type = this.type.value;
+    this.task.description = this.description.value;
+    this.task.deadline = this.deadline.value;
+
+    this._dashboardService.updateTask(this.task, this.list);
     this.dialogRef.close();
   }
 
   ngOnInit(): void {
     this.createFormControls();
     this.createForm();
+    console.log(this.list);
   }
-
 }

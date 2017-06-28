@@ -24,7 +24,7 @@ import {MdTooltipModule} from '@angular/material';
 
 import {MdMenuModule} from '@angular/material';
 import {MdSnackBarModule} from '@angular/material';
-
+import {EditTaskDialogComponent} from './edit-task-dialog/edit-task-dialog.component';
 
 
 @NgModule({
@@ -43,9 +43,9 @@ import {MdSnackBarModule} from '@angular/material';
     MdMenuModule,
     MdSnackBarModule
   ],
-  declarations: [DashboardComponent, AddTaskDialogComponent, TaskComponent],
+  declarations: [DashboardComponent, AddTaskDialogComponent, TaskComponent, EditTaskDialogComponent],
   providers: [DashboardService],
-  entryComponents: [AddTaskDialogComponent],
+  entryComponents: [AddTaskDialogComponent, EditTaskDialogComponent],
 
 } as NgModule)
 export class DashboardModule {

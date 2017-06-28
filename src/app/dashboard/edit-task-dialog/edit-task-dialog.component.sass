@@ -1,0 +1,39 @@
+@import '../../_helpers/variables'
+
+.edit-task-dialog-content
+  @media #{$information-phone}
+    min-width: 400px
+    min-height: 400px
+
+.lists-row
+  display: flex
+  flex-direction: column
+  margin: 25px 0
+  @media #{$information-phone}
+    margin: 15px 0
+    flex-direction: row
+    align-items: center
+
+.column
+  flex: 1
+
+.full-width
+  width: 100%
+
+.add-task-dialog-buttons
+  display: flex
+  justify-content: flex-end
+  padding: 0
+  color: $primary-text-color
+
+.my-danger-button
+  background: $fail-color
+  margin-right: 10px
+
+.my-success-button
+  background: $success-color
+
+md-select
+  width: 100%
+  @media #{$information-phone}
+    width: auto

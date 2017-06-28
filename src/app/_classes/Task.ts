@@ -19,35 +19,6 @@ export class Task {
     this._deadline = deadline || null;
   }
 
-  // toJSON is automatically used by JSON.stringify
-  // toJSON(task: Task): TaskJSON {
-  //   return {
-  //     title: task.title,
-  //     type: task.type,
-  //     description: task.description,
-  //     deadline: task.deadline
-  //   };
-  // }
-
-  // // fromJSON is used to convert an serialized version
-  // // of the User to an instance of the class
-  // static fromJSON(json: TaskJSON|string): Task {
-  //   if (typeof json === 'string') {
-  //     // if it's a string, parse it first
-  //     return JSON.parse(json, Task.reviver);
-  //   } else {
-  //     // create an instance of the User class
-  //     const user = Object.create(Task.prototype);
-  //     // copy all the fields from the json object
-  //     return Object.assign(user, json);
-  //   }
-  // }
-  //
-  // // reviver can be passed as the second parameter to JSON.parse
-  // // to automatically call User.fromJSON on the resulting value.
-  // static reviver(key: string, value: any): any {
-  //   return key === '' ? Task.fromJSON(value) : value;
-  // }
 
   get title(): string {
     return this._title;

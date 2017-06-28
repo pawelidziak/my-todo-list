@@ -33,7 +33,7 @@
         Todo
       </div>
       <div *ngIf="todoList.length > 0">
-        <app-task *ngFor="let item of todoList; let i = index" [item]="item" [sortBy]="i"></app-task>
+        <app-task *ngFor="let item of todoList; let i = index" [item]="item" [sortBy]="i" (click)="openEditTaskDialog(item, listsEnum.TODO)"></app-task>
       </div>
       <div *ngIf="todoList.length === 0" class="no-tasks">No tasks here</div>
 
@@ -45,7 +45,7 @@
         In progress
       </div>
       <div *ngIf="inProgressList.length > 0">
-        <app-task *ngFor="let item of inProgressList; let i = index" [item]="item" [sortBy]="i"></app-task>
+        <app-task *ngFor="let item of inProgressList; let i = index" [item]="item" [sortBy]="i" (click)="openEditTaskDialog(item, listsEnum.INPROGRESS)"></app-task>
       </div>
       <div *ngIf="inProgressList.length === 0" class="no-tasks">No tasks here</div>
 
@@ -57,7 +57,7 @@
         Done
       </div>
       <div *ngIf="doneList.length > 0">
-        <app-task *ngFor="let item of doneList; let i = index" [item]="item" [sortBy]="i"></app-task>
+        <app-task *ngFor="let item of doneList; let i = index" [item]="item" [sortBy]="i" (click)="openEditTaskDialog(item, listsEnum.DONE)"></app-task>
       </div>
       <div *ngIf="doneList.length === 0" class="no-tasks">No tasks here</div>
 
