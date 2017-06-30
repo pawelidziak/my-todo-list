@@ -1,0 +1,57 @@
+@import '../_helpers/variables'
+
+.info
+  @media #{$information-phone}
+    margin-top: 30px
+  display: flex
+  justify-content: center
+
+.my-card
+  width: 600px
+  font-family: "Roboto", sans-serif
+  color: $primary-text-color-dark
+
+md-card-header
+  margin-bottom: 20px
+
+md-card-content
+  font-size: 15px
+  text-align: justify
+
+.about-me, .contact
+  padding: 20px
+
+.my-header-title
+  align-self: center
+  font-size: 17px
+  line-height: 20px
+  .my-subtitle
+    color: lighten($primary-text-color-dark, 50%)
+
+.my-header-image
+  width: 75px
+  height: 75px
+  background-image: url('../../assets/avatar.jpg')
+  background-size: cover
+
+.socials
+  display: flex
+  justify-content: space-around
+  margin-top: 20px
+
+.icon
+  width: 50px
+  height: 50px
+  opacity: 0.85
+  cursor: pointer
+  transition: opacity 250ms ease-in-out
+  &:hover
+    opacity: 1
+
+.icon-github
+  background: url('../../assets/icons/github.svg') no-repeat center
+
+.icon-linkedin
+  background: url('../../assets/icons/linkedin.svg') no-repeat center
+
+

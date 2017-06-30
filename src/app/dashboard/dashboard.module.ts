@@ -4,10 +4,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
-
 import {DashboardService} from './dashboard.service';
 import {TaskComponent} from './task/task.component';
-
 import {MdDialogModule, MdNativeDateModule} from '@angular/material';
 import {MdDatepickerModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
@@ -21,11 +19,9 @@ import {MdGridListModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MdSelectModule} from '@angular/material';
 import {MdTooltipModule} from '@angular/material';
-
 import {MdMenuModule} from '@angular/material';
 import {MdSnackBarModule} from '@angular/material';
 import {EditTaskDialogComponent} from './edit-task-dialog/edit-task-dialog.component';
-
 
 @NgModule({
   imports: [

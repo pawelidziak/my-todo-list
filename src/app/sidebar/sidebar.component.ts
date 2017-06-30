@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class SidebarComponent implements OnInit {
 
-  private sidebarSmall: boolean;
+  public sidebarSmall: boolean;
   @Output() sendValue: EventEmitter<number>;
 
 
