@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  private padding: number;
+  public padding: number;
 
   public isSidebarOpen(value: number): void {
     this.padding = value;

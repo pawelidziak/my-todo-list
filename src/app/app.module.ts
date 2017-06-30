@@ -30,7 +30,7 @@ import {MdTooltipModule} from '@angular/material';
     MdButtonModule,
     MdTooltipModule
   ],
-  providers: [MdDatepicker],
+  providers: [],
   bootstrap: [AppComponent]
-} as NgModule)
+})
 export class AppModule { }
