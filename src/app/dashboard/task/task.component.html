@@ -4,7 +4,7 @@
     <md-card-subtitle>{{item.description}}</md-card-subtitle>
   </md-card-header>
   <md-card-footer>
-    <span *ngIf="item.deadline">{{item.deadline | date:"shortDate"}}</span>
+    <span *ngIf="item.deadline">{{item.deadline | date:"dd/MM/yy"}}</span>
     <span *ngIf="!item.deadline">no deadline</span>
   </md-card-footer>
 </md-card>
