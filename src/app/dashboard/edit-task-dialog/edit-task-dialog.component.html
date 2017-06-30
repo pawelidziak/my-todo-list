@@ -1,12 +1,20 @@
-<h1 md-dialog-title>Edit Task</h1>
+<h1 md-dialog-title>
+  <span>Edit Task</span>
+  <span class="to-right">
+    <button mdTooltip="Remove" md-mini-fab md-dialog-close class="my-remove-button" (click)="removeTask()">
+      <i class="material-icons">delete</i>
+    </button>
+  </span>
+</h1>
 <div md-dialog-content class="edit-task-dialog-content">
 
-  <form [(formGroup)]="editTaskForm" (ngSubmit)="createTask()">
+  <form [(formGroup)]="editTaskForm">
 
     <!-- Title -->
     <div class="lists-row">
       <md-input-container class="full-width">
-        <input mdInput required id="title" type="text" name="title" placeholder="Title" formControlName="title" [ngModel]="task.title">
+        <input mdInput required id="title" type="text" name="title" placeholder="Title" formControlName="title"
+               [ngModel]="task.title">
         <md-error>The title is required</md-error>
       </md-input-container>
     </div>
@@ -24,7 +32,8 @@
       <!-- Deadline -->
       <div class="column">
         <md-input-container>
-          <input mdInput [mdDatepicker]="picker" placeholder="Deadline" formControlName="deadline" [ngModel]="task.deadline">
+          <input mdInput [mdDatepicker]="picker" placeholder="Deadline" formControlName="deadline"
+                 [ngModel]="task.deadline">
           <button mdSuffix [mdDatepickerToggle]="picker"></button>
         </md-input-container>
         <md-datepicker #picker></md-datepicker>
@@ -42,12 +51,11 @@
   </form>
 
   <md-dialog-actions class="add-task-dialog-buttons">
-    <button md-raised-button md-dialog-close class="my-danger-button">Cancel</button>
+    <button md-button md-dialog-close class="my-cancel-button">Cancel</button>
     <button md-raised-button [disabled]="editTaskForm.invalid" (click)="updateTask()" class="my-success-button">
       Update
     </button>
   </md-dialog-actions>
-
 
 
 </div>

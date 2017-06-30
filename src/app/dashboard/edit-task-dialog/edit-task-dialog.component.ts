@@ -54,9 +54,12 @@ export class EditTaskDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  removeTask(): void {
+    this._dashboardService.removeTask(this.task, this.list);
+  }
+
   ngOnInit(): void {
     this.createFormControls();
     this.createForm();
-    console.log(this.list);
   }
 }

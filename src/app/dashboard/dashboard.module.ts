@@ -47,6 +47,6 @@ import {EditTaskDialogComponent} from './edit-task-dialog/edit-task-dialog.compo
   providers: [DashboardService],
   entryComponents: [AddTaskDialogComponent, EditTaskDialogComponent],
 
-} as NgModule)
+})
 export class DashboardModule {
 }

@@ -29,12 +29,12 @@ export class DashboardService {
     this._listsEnum = ListsEnum;
   }
 
-  addTask(title: string, type: string, deadline: Date, description: string): void {
+  addTask(title: string, type: string, description: string, deadline: Date): void {
     const color = this.adjustTaskColor(type);
     const task = new Task(title, type, color, description, deadline);
     this._todoList.push(task);
   }
-  
+
   // method stores lists with all tasks in local storage
   saveTasks(): void {
     const allLists = [
@@ -51,6 +51,10 @@ export class DashboardService {
     this.todoList.length = 0;
     this.inProgressList.length = 0;
     this.doneList.length = 0;
+  }
+
+  removeTask(task: Task, list: Array<Task>): void {
+    list.splice(list.indexOf(task), 1);
   }
 
   adjustTaskColor(value: string): string {
